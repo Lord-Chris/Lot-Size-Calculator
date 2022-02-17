@@ -46,14 +46,18 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text(
-                    "Amount to Risk (\$)",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
+                  const SizedBox(
+                    width: 100,
+                    child: Text(
+                      "Amount to Risk (\$)",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                   const XMargin(25),
                   Flexible(
+                    flex: 3,
                     child: AppTextField(
                       controller: _amount,
                       validator: (val) => val == null || val.isEmpty
@@ -67,10 +71,13 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text(
-                    "Stop loss",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
+                  const SizedBox(
+                    width: 100,
+                    child: Text(
+                      "Stop loss",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                   const XMargin(25),
@@ -88,19 +95,19 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text(
-                    "PIP value per lot",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
+                  const SizedBox(
+                    width: 100,
+                    child: Text(
+                      "PIP value per lot",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                   const XMargin(25),
                   Flexible(
                     child: AppTextField(
                       controller: _pipVal,
-                      validator: (val) => val == null || val.isEmpty
-                          ? "Stop loss must not be empty"
-                          : null,
                     ),
                   ),
                 ],
@@ -120,8 +127,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                     padding: const EdgeInsets.all(20.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const YMargin(25),
                         const Align(
                           alignment: Alignment.topCenter,
                           child: Text(
@@ -132,9 +139,9 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             ),
                           ),
                         ),
-                        const YMargin(50),
+                        const YMargin(30),
                         Text(
-                          "$_lotSize",
+                          _lotSize.toStringAsFixed(2),
                           style: const TextStyle(
                             fontSize: 50,
                             fontWeight: FontWeight.bold,
